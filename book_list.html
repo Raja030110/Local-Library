@@ -1,0 +1,32 @@
+{% extends "design/layout/page.html" %}
+
+{% block content %}
+<div class="card" style="width: 121% ;margin-top:12%;box-shadow: 10px 10px 7px black ">
+
+<div class="card text-center">
+  <div class="card-header">
+    <h1>Book List</h1>
+  </div>
+  <div class="card-body">
+    {% if object_list %}
+    <ol>
+      {% for book in object_list %}
+      <li>
+        <a href="{% url 'book_details' book.pk %}">{{book.title}}</a>
+        ({{book.author}})
+      </li>
+      {% endfor %}
+
+    </ol>
+    {% else %}
+      <p>There are no book in the library </p>
+    {% endif %}
+  </div>
+  <div class="card-footer text-muted">
+    <p>local-library</p>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}

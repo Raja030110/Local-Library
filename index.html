@@ -1,0 +1,36 @@
+{% extends "design/layout/page.html" %}
+
+  {% block content %}
+
+<div  style="box-shadow: 10px 10px 7px black">
+
+
+  <div class="card" style="width: 100% ;margin-top:6%;">
+
+    <div class="card-body" >
+      <h1 class="card-title">Local Library Home</h1>
+      <p class="card-text">Welcome to LocalLibrary, <em>Place for book lover</em>!</p>
+
+    </div>
+  </div>
+    <div class="card" style="width: 100%;">
+
+      <div class="card-body" style="height:340px">
+
+        <h2>Dynamic content</h2>
+        <p>The library has the following record counts:</p>
+        <ul>
+          <li><strong>Books:</strong> {{ num_books }}</li>
+          <li><strong>Copies:</strong> {{ num_instance }}</li>
+          <li><strong>Copies available:</strong> {{ num_instance_available }}</li>
+          <li><strong>Authors:</strong> {{ num_Author }}</li>
+          <li><strong>Genre:</strong> {{ num_genre }}</li>
+
+        </ul>
+        <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+      </div>
+  </div>
+</div>
+
+
+  {% endblock %}

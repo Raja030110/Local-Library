@@ -1,0 +1,23 @@
+{% extends "design/layout/page.html" %}
+
+{% block content %}
+<div class="card" style="width: 121% ;margin-top:6%;height:250px">
+  <div class="" style="background-color:white;">
+    <center>
+      <div style="margin-top:20px" >
+        
+        <p><strong>Book:</strong> {{ book_instance.book }}</p>
+        <p><strong>Applicate Name:</strong> {{ book_instance.borrower }}</p>
+        <p {% if book_instance.is_overdue %} class="text-danger"{% endif %}>Due date: {{ book_instance.due_date }}</p>
+        <form  method="post">
+          {% csrf_token %}
+          {{form.as_p}}
+          <input type="submit" name="" value="submit">
+        </form>
+        </div>
+      </center>
+
+
+  </div>
+</div>
+{% endblock %}

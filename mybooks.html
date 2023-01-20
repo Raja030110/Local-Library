@@ -1,0 +1,45 @@
+{% extends "design/layout/page.html" %}
+
+
+{% block content %}
+<div style="box-shadow: 10px 10px 7px black;background-color:white ; margin-top:10%" >
+
+
+<div class="card text-center">
+  <div class="card-header">
+  <h1>Borrowed books</h1>
+  </div>
+  <div class="card-body">
+    {% if bookinstance_list %}
+    <ul>
+
+      {% for bookinst in bookinstance_list %}
+      <table>
+        <tr>
+
+        <td><li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+          <a href="{% url 'book_details' bookinst.book.pk %}">{{ bookinst.book.title }}</a> ({{ bookinst.due_date }})
+        </li></td>
+        <td><a href="{% url 'renew-book-librarian' bookinst.pk %}">Renew-Book</a></td>
+        </tr>
+      </table>
+
+
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}
+
+  </div>
+  <div class="card-footer text-muted">
+    <p>local-library</p>
+  </div>
+</div>
+
+
+
+  </div>
+
+{% endblock %}

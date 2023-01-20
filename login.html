@@ -1,0 +1,50 @@
+{% extends "design/layout/page.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  <div  style="box-shadow: 10px 10px 7px black ;margin-left:15%">
+
+    <div class="" style="margin-top:20% ;">
+      <div class="card text-center">
+        <div class="card-header">
+          <h4>Login</h4>
+        </div>
+        <div class="card-body" style="padding-left:30% ;height:150px; margin-top:3%" >
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+              <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr >
+                <td></td>
+                <td><input type="submit" value="login"></td>
+              </tr>
+            </table>
+
+            <input type="hidden" name="next" value="{{ next }}">
+          </form>
+
+        </div>
+        <div class="card-footer text-muted">
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
